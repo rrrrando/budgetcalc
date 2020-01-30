@@ -8,5 +8,20 @@
 
 <h1>Budget Calc</h1>
 
+<div id="sum_total" data-sum="0"></div>
+
+<input id="description" value="description">
+<input id="sum" value="2000">
+<input type="radio" name="action" value="add" checked>
+<input type="radio" name="action" value="minus">
+<button onclick="addBudgetRow()">Create</button>
+
+<div id="result">
+    <ul id="add"></ul>
+    <ul id="minus"></ul>
+</div>
+
+<script src="./calculations.js"></script>
+
 </body>
 </html>
