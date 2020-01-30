@@ -1,31 +1,35 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="et">
+
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Budget Calc</title>
 </head>
+
 <body>
+    <h1>Budget Calc</h1>
 
-<h1>Budget Calc</h1>
+    <div id="alert" style="display: none;"></div>
 
-<div id="alert" style="display: none;"></div>
+    <h1>Total: <span id="sum_total"></span></h1>
 
-<h1>Total: <span id="sum_total"></span></h1>
+    Description: <input id="description" value="description"><br>
+    Sum: <input type="number" id="sum" value="2000"><br>
+    Add: <input type="radio" name="action" value="add" checked>
+    Minus: <input type="radio" name="action" value="minus"><br>
+    <button onclick="addBudgetRow()">Create</button>
+    <button onclick="clearLocalStorage()">Delete Data</button>
 
-Description: <input id="description" value="description"><br>
-Sum: <input type="number" id="sum" value="2000"><br>
-Add: <input type="radio" name="action" value="add" checked>
-Minus: <input type="radio" name="action" value="minus"><br>
-<button onclick="addBudgetRow()">Create</button>
-<button onclick="clearLocalStorage()">Delete Data</button>
+    <div id="result">
+        <h3>Results</h3>
+        <ul id="add"></ul>
+        <ul id="minus"></ul>
+    </div>
 
-<div id="result">
-    <h3>Results</h3>
-    <ul id="add"></ul>
-    <ul id="minus"></ul>
-</div>
-
-<script src="assets/js/calculations.js"></script>
+    <script src="assets/js/calculations.js"></script>
 
 </body>
+
 </html>
