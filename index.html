@@ -8,16 +8,19 @@
 
 <h1>Budget Calc</h1>
 
-<div id="sum_total"></div>
+<div id="alert" style="display: none;"></div>
 
-<input id="description" value="description">
-<input id="sum" value="2000">
-<input type="radio" name="action" value="add" checked>
-<input type="radio" name="action" value="minus">
+<h1>Total: <span id="sum_total"></span></h1>
+
+Description: <input id="description" value="description"><br>
+Sum: <input type="number" id="sum" value="2000"><br>
+Add: <input type="radio" name="action" value="add" checked>
+Minus: <input type="radio" name="action" value="minus"><br>
 <button onclick="addBudgetRow()">Create</button>
 <button onclick="clearLocalStorage()">Delete Data</button>
 
 <div id="result">
+    <h3>Results</h3>
     <ul id="add"></ul>
     <ul id="minus"></ul>
 </div>

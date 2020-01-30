@@ -6,10 +6,30 @@ displayLocalStorage();
 
 function addBudgetRow() {
 
+    var alert = document.querySelector("#alert");
+    alert.style.display = 'none';
+
     getLocalStorageData();
 
     let description = document.getElementById("description").value;
     let sum = parseFloat(document.getElementById("sum").value);
+
+    console.log(description);
+    console.log(sum);
+
+    if (description == "") {
+        alert.style.display = 'block';
+        alert.innerHTML = 'Description is empty';
+        return;
+    }
+
+    if (isNaN(sum) || typeof sum != 'number' || sum == 0) {
+        alert.style.display = 'block';
+        alert.innerHTML = 'Sum is empty or 0';
+        return;
+    }
+
+    return;
 
     let action = document.querySelector('input[name="action"]:checked').value;
 
@@ -80,4 +100,6 @@ function getLocalStorageData() {
 
 function clearLocalStorage() {
     localStorage.clear();
+    document.querySelector("#add").innerHTML = "";
+    document.querySelector("#minus").innerHTML = "";
 }
