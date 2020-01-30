@@ -29,8 +29,6 @@ function addBudgetRow() {
         return;
     }
 
-    return;
-
     let action = document.querySelector('input[name="action"]:checked').value;
 
     let object = {
