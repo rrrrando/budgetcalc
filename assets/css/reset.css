@@ -1,0 +1,16 @@
+/* Reset Styles */
+html {
+    box-sizing: border-box;
+    height: 100%;
+    font-family: var(--font-body);
+}
+
+* {
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    height: 100%;
+}

@@ -1,0 +1,13 @@
+/* Variables */
+
+:root {
+    --neutral: hsl(0,0%,95%); 
+    --white: hsl(0, 0%, 100%);
+    --blue:#01579B;
+    --gray-100: #616161;
+    --gray-600: #757575;
+    --green: #4CAF50;
+    --red: #F2453D;
+    --font-mono: 'Roboto Mono', monospace;
+    --font-body: 'Roboto', sans-serif;
+}

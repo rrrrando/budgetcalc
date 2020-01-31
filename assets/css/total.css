@@ -1,0 +1,29 @@
+/* Total sum styles */
+
+.total {
+    display: flex;
+    background-color: var(--blue);
+    align-items: center;
+    justify-content: space-between;
+    height: 90px;
+    padding: 0 2rem;
+}
+
+.total-lable {
+    flex: 1 1 0;
+    text-transform: uppercase;
+    color: var(--white);
+    font-size: 13px;
+}
+
+.total-sum {
+    flex: auto;
+    font-size: 48px;
+    font-family: var(--font-mono);
+    color: var(--white);
+    text-align: center;    
+}
+
+.total-spacer {
+    flex: 1 1 0;
+}

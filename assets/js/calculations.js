@@ -52,7 +52,7 @@ function save(objects, object, key) {
 
     objects.push(object);
 
-    key = key == 'add_rows' ? '#add' : '#minus';
+    key = key == 'income' ? 'income' : 'expense';
     show(object, key);
 }
 
