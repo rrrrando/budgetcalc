@@ -5,29 +5,72 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/assets/css/style.css">
     <title>Budget Calc</title>
 </head>
 
 <body>
-    <h1>Budget Calc</h1>
-
-    <div id="alert" style="display: none;"></div>
-
-    <h1>Total: <span id="sum_total"></span></h1>
-
-    Description: <input id="description" value="description"><br>
-    Sum: <input type="number" id="sum" value="2000"><br>
-    Add: <input type="radio" name="action" value="add" checked>
-    Minus: <input type="radio" name="action" value="minus"><br>
-    <button onclick="addBudgetRow()">Create</button>
-    <button onclick="clearLocalStorage()">Delete Data</button>
-
-    <div id="result">
-        <h3>Results</h3>
-        <ul id="add"></ul>
-        <ul id="minus"></ul>
+    <div class="total">
+        <span class="total-lable">hetkeseis</span>
+        <h1 class="total-sum">300</h1>
+        <span class="total-spacer"></span>
     </div>
-
+    <div>
+        <div class="wrapper open">
+            <div class="add-data">
+                <div class="flex">
+                    <div class="flex-1">
+                        <label class="form-lable" for="sum">Summa
+                        </label>
+                        <input class="form-input" type="number" step=".01" name="sum" id="sum" placeholder="35,90">
+                    </div>
+                    <div class="flex-1 flex flex-col items-end">
+                        <span class="form-lable">Sissetulek/Väljaminek</span>
+                        <label class="switch" for="switch-checkbox">
+                            <input type="checkbox" id="switch-checkbox">
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+                </div>
+                <div class="mt-6">
+                    <div class="flex-1">
+                        <label class="form-lable" for="comment">Kirjeldus</label>
+                        <input class="form-input" type="text" name="comment" id="comment">
+                    </div>
+                </div>
+                <div class="flex flex-col mt-6">
+                    <div class="flex">
+                            <button class="btn" id="add-row-btn">Lisa sissetulek</button>
+                        <div class="flex">
+                            <input class="form-input" type="date" name="sum" id="sum">
+                            <button class="btn">Lisa sissetulek</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-col items-end mt-6">
+                    <a href="#" class="cancel">Loobu</a>
+                </div>
+            </div>
+        </div>
+        <div class="show-data open">
+            <ul class="data flex flex-col">
+                <li class="data-item expense flex">
+                    <div class="flex py items-center">
+                        <div class="amount">300,67</div>
+                        <div class="desc">Raha kadunud kuskile, krt</div>
+                    </div>
+                    <div class="label"></div>
+                </li>
+                <li class="data-item income flex">
+                    <div class="flex py order-1 items-center">
+                        <div class="amount">300,67</div>
+                        <div class="desc">Raha kadunud kuskile, krt</div>
+                    </div>
+                    <div class="label"></div>
+                </li>
+            </ul>
+        </div>
+    </div>
     <script src="assets/js/calculations.js"></script>
 
 </body>
