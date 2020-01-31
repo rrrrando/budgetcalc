@@ -1,47 +1,53 @@
-var storedAddRows = [];
-var storedMinusRows = [];
-var storedTotalSum = 0;
+let storedAddRows = [];
+let storedMinusRows = [];
+let storedTotalSum = 0;
+const addRowBtn = document.getElementById('add-row-btn');
 
-displayLocalStorage();
+addRowBtn.addEventListener('click', addBudgetRow);
+
+// displayLocalStorage();
 
 function addBudgetRow() {
 
-    var alert = document.querySelector("#alert");
-    alert.style.display = 'none';
+//    console.log(123);
+
+//    let alert = document.querySelector("#alert");
+//    alert.style.display = 'none';
 
     getLocalStorageData();
 
-    let description = document.getElementById("description").value;
-    let sum = parseFloat(document.getElementById("sum").value);
+    let description = document.getElementById("comment").value;
+    let sum = +document.getElementById("sum").value;
 
     console.log(description);
     console.log(sum);
 
-    if (description == "") {
-        alert.style.display = 'block';
-        alert.innerHTML = 'Description is empty';
-        return;
-    }
+    // if (description == "") {
+    //     alert.style.display = 'block';
+    //     alert.innerHTML = 'Description is empty';
+    //     return;
+    // }
 
-    if (isNaN(sum) || typeof sum != 'number' || sum == 0) {
-        alert.style.display = 'block';
-        alert.innerHTML = 'Sum is empty or 0';
-        return;
-    }
+    // if (isNaN(sum) || typeof sum != 'number' || sum == 0) {
+    //     alert.style.display = 'block';
+    //     alert.innerHTML = 'Sum is empty or 0';
+    //     return;
+    // }
 
-    let action = document.querySelector('input[name="action"]:checked').value;
+    let action = document.querySelector('#switch-checkbox').checked ? 'expense' : 'income';
+    console.log(action);
 
     let object = {
         description: description,
         sum: sum
     };
 
-    if (action == 'add') {
+    if (action == 'income') {
         storedTotalSum += sum;
-        save(storedAddRows, object, "add_rows");
+        save(storedAddRows, object, "income");
     } else {
         storedTotalSum -= sum;
-        save(storedMinusRows, object, "minus_rows");
+        save(storedMinusRows, object, "expense");
     }
 
     document.getElementById("sum_total").innerHTML = storedTotalSum;
@@ -56,15 +62,15 @@ function displayLocalStorage() {
 
     for (let row in storedAddRows) {
         let object = storedAddRows[row];
-        show(object, '#add');
+        show(object, 'expense');
     }
 
     for (let row in storedMinusRows) {
         let object = storedMinusRows[row];
-        show(object, '#minus');
+        show(object, 'income');
     }
 
-    document.getElementById("sum_total").innerHTML = storedTotalSum;
+    document.querySelector(".total-sum").innerHTML = storedTotalSum;
 
 }
 
@@ -73,15 +79,22 @@ function save(objects, object, key) {
     objects.push(object);
     localStorage.setItem(key, JSON.stringify(objects));
 
-    key = key == 'add_rows' ? '#add' : '#minus';
+    key = key == 'income' ? 'income' : 'expense';
     show(object, key);
 }
 
 function show(object, key) {
-    let node = document.createElement("li");
-    let row = document.createTextNode(object.description + " | " + object.sum);
-    node.appendChild(row);
-    document.querySelector(key).appendChild(node);
+    let item = `
+<li class="data-item ${key} flex">
+    <div class="flex py items-center">
+        <div class="amount">${object.sum}</div>
+        <div class="desc">${object.description}</div>
+    </div>
+    <div class="label"></div>
+</li>`;
+
+
+    document.querySelector(".data").innerHTML += item;
 }
 
 function getLocalStorageData() {
@@ -98,6 +111,6 @@ function getLocalStorageData() {
 
 function clearLocalStorage() {
     localStorage.clear();
-    document.querySelector("#add").innerHTML = "";
-    document.querySelector("#minus").innerHTML = "";
+    document.querySelector("income").innerHTML = "";
+    document.querySelector("expense").innerHTML = "";
 }
