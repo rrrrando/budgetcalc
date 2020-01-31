@@ -12,11 +12,11 @@
 <body>
     <div class="total">
         <span class="total-lable">hetkeseis</span>
-        <h1 class="total-sum">300</h1>
+        <h1 class="total-sum">0</h1>
         <span class="total-spacer"></span>
     </div>
     <div>
-        <div class="wrapper open">
+        <div class="wrapper">
             <div class="add-data">
                 <div class="flex">
                     <div class="flex-1">
@@ -39,38 +39,19 @@
                     </div>
                 </div>
                 <div class="flex flex-col mt-6">
-                    <div class="flex">
-                            <button class="btn" id="add-row-btn">Lisa sissetulek</button>
-                        <div class="flex">
-                            <input class="form-input" type="date" name="sum" id="sum">
-                            <button class="btn">Lisa sissetulek</button>
-                        </div>
+                    <div class="flex items-center space-between">
+                        <button class="btn" id="add-row-btn">Lisa</button>
+                        <a href="#" class="cancel">Sulge</a>
                     </div>
-                </div>
-                <div class="flex flex-col items-end mt-6">
-                    <a href="#" class="cancel">Loobu</a>
                 </div>
             </div>
         </div>
-        <div class="show-data open">
-            <ul class="data flex flex-col">
-                <li class="data-item expense flex">
-                    <div class="flex py items-center">
-                        <div class="amount">300,67</div>
-                        <div class="desc">Raha kadunud kuskile, krt</div>
-                    </div>
-                    <div class="label"></div>
-                </li>
-                <li class="data-item income flex">
-                    <div class="flex py order-1 items-center">
-                        <div class="amount">300,67</div>
-                        <div class="desc">Raha kadunud kuskile, krt</div>
-                    </div>
-                    <div class="label"></div>
-                </li>
+        <div class="show-data">
+            <ul class="data flex flex-col flex-reverse">
             </ul>
         </div>
     </div>
+    <button class="add-btn btn">+</button>
     <script src="assets/js/calculations.js"></script>
 
 </body>
