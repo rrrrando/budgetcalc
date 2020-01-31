@@ -1,3 +1,12 @@
+.show-data {
+    height: calc(100vh - 90px);
+    overflow: auto;
+}
+
+.show-data.open {
+    height: calc(100vh - 436px);
+}
+
 .data {
     padding-top: 2rem;
 }
@@ -6,6 +15,7 @@
     background-color: var(--white);
     border: 1px solid #BDBDBD;
     margin: 2px 0;
+    width: calc(100% - 1rem)
     
 }
 
@@ -31,6 +41,7 @@
 
 .expense .label {
     background-color: var(--red);
+    margin-left: auto;
 }
 
 .data-item .amount {

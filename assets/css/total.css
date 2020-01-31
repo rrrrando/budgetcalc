@@ -19,6 +19,7 @@
 .total-sum {
     flex: auto;
     font-size: 48px;
+    font-family: var(--font-mono);
     color: var(--white);
     text-align: center;    
 }
