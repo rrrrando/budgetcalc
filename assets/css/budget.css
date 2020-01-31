@@ -1,0 +1,45 @@
+.data {
+    padding-top: 2rem;
+}
+
+.data-item {
+    background-color: var(--white);
+    border: 1px solid #BDBDBD;
+    margin: 2px 0;
+    
+}
+
+.income {
+    align-self: flex-start;
+    border-radius: 0px 24px 24px 0px;
+}
+
+.expense {
+    align-self: flex-end;
+    border-radius: 24px 0px 0px 24px;
+}
+
+.label {
+    background-color: khaki;
+    width: 1rem;
+}
+
+.income .label {
+    order: 0;
+    background-color: var(--green);
+}
+
+.expense .label {
+    background-color: var(--red);
+}
+
+.data-item .amount {
+    padding: 0 1rem;
+    font-size: 24px;
+    font-family: var(--font-mono);
+}
+
+.data-item .desc {
+    padding: 0 1rem;
+    font-size: 14px;
+}

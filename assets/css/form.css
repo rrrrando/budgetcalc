@@ -1,7 +1,17 @@
 /* Form classes */
+.wrapper {
+    box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.15);
+    max-height: 0;
+    overflow: hidden;
+    transition: all ease-in-out 1s;
+}
+
+.wrapper.open {
+    max-height: 1000px;
+}
+
 .add-data {
     padding: 2rem 1rem;
-    box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.15);
 }
 
 .form-lable {

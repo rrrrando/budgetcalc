@@ -26,6 +26,18 @@
     margin-top: 1.5rem;
 }
 
+.py {
+    padding: 1rem 0;
+}
+
+.order-1 {
+    order: 1;
+}
+
 .items-end {
     align-items: flex-end;
+}
+
+.items-center {
+    align-items: center;
 }
