@@ -18,8 +18,15 @@ cancel.addEventListener('click', toggleDialog);
 type.addEventListener('change', toggleRowButtonState);
 
 function toggleRowButtonState() {
-    console.log("checkbox value is " + type.value);
-    console.log("but it is always ON");
+    // console.log("checkbox value is " + type.checked);
+    if(!type.checked){
+        addRowBtn.innerHTML = "Lisa sissetulek";
+        addRowBtn.classList.remove('expense');
+    } else {
+        addRowBtn.innerHTML = "Lisa väljaminek";
+        addRowBtn.classList.add('expense');
+    }
+    
 }
 
 function toggleDialog() {

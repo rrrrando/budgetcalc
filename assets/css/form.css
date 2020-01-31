@@ -4,11 +4,12 @@
     box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.15);
     max-height: 0;
     overflow: hidden;
-    transition: all ease-in-out 1s;
-}
-
-.wrapper.open {
+    transition: all ease-out 0.5s;
+  }
+  
+  .wrapper.open {
     max-height: 1000px;
+    transition: all ease-in 0.5s;
 }
 
 .add-data {
@@ -127,6 +128,10 @@ input[type=number] {
     font-size: 1.125rem;
     color: var(--white);
     text-transform: uppercase;
+}
+
+.btn.expense {
+  background: var(--red-500);
 }
 
 .cancel {
