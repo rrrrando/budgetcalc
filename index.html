@@ -16,43 +16,62 @@
         <span class="total-spacer"></span>
     </div>
     <div>
-        <div class="add-data">
-            <div class="flex mt-6">
-                <div class="flex-1">
-                    <label class="form-lable" for="sum">Summa
-                    </label>
-                    <input class="form-input" type="number" name="sum" id="sum">
-                </div>
-                <div class="flex-1 flex flex-col items-end">
-                    <span class="form-lable">Sissetulek/Väljaminek</span>
-                    <label class="switch">
-                        <input type="checkbox">
-                        <span class="slider round"></span>
-                    </label>
-                </div>
-            </div>
-            <div class="mt-6">
-                <div class="flex-1">
-                    <label class="form-lable" for="comment">Kirjeldus</label>
-                    <input class="form-input" type="text" name="comment" id="comment">
-                </div>
-            </div>
-            <div class="flex flex-col mt-6">
-                <label class="form-lable" for="sum">Kuupäev</label>
+        <div class="wrapper open">
+            <div class="add-data">
                 <div class="flex">
                     <div class="flex-1">
-                        <input class="form-input" type="date" name="sum" id="sum">
+                        <label class="form-lable" for="sum">Summa
+                        </label>
+                        <input class="form-input" type="number" step=".01" name="sum" id="sum" placeholder="35,90">
                     </div>
                     <div class="flex-1 flex flex-col items-end">
-                        <button class="btn">Lisa sissetulek</button>
+                        <span class="form-lable">Sissetulek/Väljaminek</span>
+                        <label class="switch">
+                            <input type="checkbox">
+                            <span class="slider round"></span>
+                        </label>
                     </div>
                 </div>
-            </div>
-            <div class="flex flex-col items-end mt-6">
-                <a href="#">Loobu</a>
+                <div class="mt-6">
+                    <div class="flex-1">
+                        <label class="form-lable" for="comment">Kirjeldus</label>
+                        <input class="form-input" type="text" name="comment" id="comment">
+                    </div>
+                </div>
+                <div class="flex flex-col mt-6">
+                    <label class="form-lable" for="sum">Kuupäev</label>
+                    <div class="flex">
+                        <div class="flex-1">
+                            <input class="form-input" type="date" name="sum" id="sum">
+                        </div>
+                        <div class="flex-1 flex flex-col items-end">
+                            <button class="btn">Lisa sissetulek</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-col items-end mt-6">
+                    <a href="#" class="cancel">Loobu</a>
+                </div>
             </div>
         </div>
-        <div class="show-data"></div>
+        <div class="show-data">
+            <ul class="data flex flex-col">
+                <li class="data-item expense flex">
+                    <div class="flex py items-center">
+                        <div class="amount">300,67</div>
+                        <div class="desc">Raha kadunud kuskile, krt</div>
+                    </div>
+                    <div class="label"></div>
+                </li>
+                <li class="data-item income flex">
+                    <div class="flex py order-1 items-center">
+                        <div class="amount">300,67</div>
+                        <div class="desc">Raha kadunud kuskile, krt</div>
+                    </div>
+                    <div class="label"></div>
+                </li>
+            </ul>
+        </div>
     </div>
     <script src="assets/js/calculations.js"></script>
 

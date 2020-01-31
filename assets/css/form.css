@@ -1,0 +1,128 @@
+/* Form classes */
+.wrapper {
+    box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.15);
+    max-height: 0;
+    overflow: hidden;
+    transition: all ease-in-out 1s;
+}
+
+.wrapper.open {
+    max-height: 1000px;
+}
+
+.add-data {
+    padding: 2rem 1rem;
+}
+
+.form-lable {
+    display: block;
+    text-transform: uppercase;
+    font-size: 11px;
+    color: var(--gray-100);
+}
+
+.form-input {
+    margin-top: 5px;
+    background: var(--white);
+    border: 1px solid #E0E0E0;
+    box-shadow: inset 0px 2px 2px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    font-size: 24px;
+    width: 100%;
+    padding: 5px;
+    color: var(--gray-100);
+    font-family: 'Roboto', sans-serif;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance:textfield;
+}
+
+ .switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+    margin-top: 5px;
+  }
+  
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color:var(--green);
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: var(--neutral);
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  input[type=checkbox]:checked + .slider {
+    background-color: var(--red);
+  }
+  
+  input[type=checkbox]:focus + .slider {
+    box-shadow: 0 0 1px var(--red);
+  }
+  
+  input[type=checkbox]:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
+  
+  .slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }
+
+.btn {
+    width: 175px;
+    height: 37px;
+    right: 18px;
+    bottom: 71px;
+    background: #4CAF50;
+    border-radius: 43px;
+    border: none;
+    margin-top: 5px;
+    font-family: Roboto;
+    font-size: 18px;
+    color: var(--white);
+    text-transform: uppercase;
+}
+
+.cancel {
+    font-size: 18px;
+    color: var(--gray-600);
+    text-transform: uppercase;
+    margin-right: 1rem;
+}
