@@ -1,103 +1,76 @@
-var storedAddRows = [];
-var storedMinusRows = [];
-var storedTotalSum = 0;
+let storedAddRows = [];
+let storedMinusRows = [];
+let storedTotalSum = 0;
+let description = document.getElementById("comment");
+let sum = document.getElementById("sum");
+const addRowBtn = document.getElementById('add-row-btn');
+const type = document.querySelector('#switch-checkbox');
+const totalSum = document.querySelector(".total-sum");
+const showBtn = document.querySelector(".add-btn");
+const wrapper = document.querySelector(".wrapper");
+const showData = document.querySelector(".show-data");
+const cancel = document.querySelector(".cancel");
 
-displayLocalStorage();
+addRowBtn.addEventListener('click', addBudgetRow);
+showBtn.addEventListener('click', toggleDialog);
+cancel.addEventListener('click', toggleDialog);
+
+function toggleDialog() {
+    wrapper.classList.toggle('open');
+    showData.classList.toggle('open');
+}
 
 function addBudgetRow() {
 
-    var alert = document.querySelector("#alert");
-    alert.style.display = 'none';
+    if (description.value === '' || sum.value === '') return;
 
-    getLocalStorageData();
-
-    let description = document.getElementById("description").value;
-    let sum = parseFloat(document.getElementById("sum").value);
-
-    console.log(description);
-    console.log(sum);
-
-    if (description == "") {
-        alert.style.display = 'block';
-        alert.innerHTML = 'Description is empty';
-        return;
-    }
-
-    if (isNaN(sum) || typeof sum != 'number' || sum == 0) {
-        alert.style.display = 'block';
-        alert.innerHTML = 'Sum is empty or 0';
-        return;
-    }
-
-    let action = document.querySelector('input[name="action"]:checked').value;
+    let action = type.checked ? 'expense' : 'income';
 
     let object = {
-        description: description,
-        sum: sum
+        description: description.value,
+        sum: parseFloat(sum.value)
     };
 
-    if (action == 'add') {
-        storedTotalSum += sum;
-        save(storedAddRows, object, "add_rows");
+    if (action == 'income') {
+        storedTotalSum += object.sum;
+        save(storedAddRows, object, "income");
     } else {
-        storedTotalSum -= sum;
-        save(storedMinusRows, object, "minus_rows");
+        storedTotalSum -= object.sum;
+        save(storedMinusRows, object, "expense");
     }
 
-    document.getElementById("sum_total").innerHTML = storedTotalSum;
+    totalSum.innerHTML = storedTotalSum.toFixed(2);
 
     localStorage.setItem("total_sum", storedTotalSum);
 
-}
-
-function displayLocalStorage() {
-
-    getLocalStorageData();
-
-    for (let row in storedAddRows) {
-        let object = storedAddRows[row];
-        show(object, '#add');
-    }
-
-    for (let row in storedMinusRows) {
-        let object = storedMinusRows[row];
-        show(object, '#minus');
-    }
-
-    document.getElementById("sum_total").innerHTML = storedTotalSum;
+    description.value = ''
+    sum.value = ''
 
 }
 
 function save(objects, object, key) {
 
     objects.push(object);
-    localStorage.setItem(key, JSON.stringify(objects));
 
     key = key == 'add_rows' ? '#add' : '#minus';
     show(object, key);
 }
 
 function show(object, key) {
-    let node = document.createElement("li");
-    let row = document.createTextNode(object.description + " | " + object.sum);
-    node.appendChild(row);
-    document.querySelector(key).appendChild(node);
-}
+    let item = `
+        <div class="flex py ${key === 'income' ? 'order-1' : ''} items-center">
+            <div class="amount">${object.sum.toFixed(2)}</div>
+            <div class="desc">${object.description}</div>
+        </div>
+        <div class="label"></div>
+   `;
 
-function getLocalStorageData() {
+    const li = document.createElement('li');
+    li.innerHTML = item;
+    li.classList.add('data-item', key, 'flex');
 
-    storedAddRows = JSON.parse(localStorage.getItem("add_rows"));
-    storedAddRows = storedAddRows == null ? [] : storedAddRows;
-
-    storedMinusRows = JSON.parse(localStorage.getItem("minus_rows"));
-    storedMinusRows = storedMinusRows == null ? [] : storedMinusRows;
-
-    storedTotalSum = localStorage.getItem("total_sum");
-    storedTotalSum = storedTotalSum == null ? 0 : parseFloat(localStorage.getItem("total_sum"));
-}
-
-function clearLocalStorage() {
-    localStorage.clear();
-    document.querySelector("#add").innerHTML = "";
-    document.querySelector("#minus").innerHTML = "";
+    document.querySelector(".data").appendChild(li);
+    setTimeout(function () {
+        li.classList.add('show')
+    }, 10);
 }

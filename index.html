@@ -9,25 +9,48 @@
 </head>
 
 <body>
-    <h1>Budget Calc</h1>
-
-    <div id="alert" style="display: none;"></div>
-
-    <h1>Total: <span id="sum_total"></span></h1>
-
-    Description: <input id="description" value="description"><br>
-    Sum: <input type="number" id="sum" value="2000"><br>
-    Add: <input type="radio" name="action" value="add" checked>
-    Minus: <input type="radio" name="action" value="minus"><br>
-    <button onclick="addBudgetRow()">Create</button>
-    <button onclick="clearLocalStorage()">Delete Data</button>
-
-    <div id="result">
-        <h3>Results</h3>
-        <ul id="add"></ul>
-        <ul id="minus"></ul>
+    <div class="total">
+        <span class="total-lable">hetkeseis</span>
+        <h1 class="total-sum">0</h1>
+        <span class="total-spacer"></span>
     </div>
-
+    <div>
+        <div class="wrapper">
+            <div class="add-data">
+                <div class="flex">
+                    <div class="flex-1">
+                        <label class="form-lable" for="sum">Summa
+                        </label>
+                        <input class="form-input" type="number" step=".01" name="sum" id="sum" placeholder="35,90">
+                    </div>
+                    <div class="flex-1 flex flex-col items-end">
+                        <span class="form-lable">Sissetulek/Väljaminek</span>
+                        <label class="switch" for="switch-checkbox">
+                            <input type="checkbox" id="switch-checkbox">
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+                </div>
+                <div class="mt-6">
+                    <div class="flex-1">
+                        <label class="form-lable" for="comment">Kirjeldus</label>
+                        <input class="form-input" type="text" name="comment" id="comment">
+                    </div>
+                </div>
+                <div class="flex flex-col mt-6">
+                    <div class="flex items-center space-between">
+                        <button class="btn" id="add-row-btn">Lisa</button>
+                        <a href="#" class="cancel">Sulge</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="show-data">
+            <ul class="data flex flex-col flex-reverse">
+            </ul>
+        </div>
+    </div>
+    <button class="add-btn btn">+</button>
     <script src="assets/js/calculations.js"></script>
 
 </body>
