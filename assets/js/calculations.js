@@ -3,6 +3,7 @@ let storedMinusRows = [];
 let storedTotalSum = 0;
 let description = document.getElementById("comment");
 let sum = document.getElementById("sum");
+
 const addRowBtn = document.getElementById('add-row-btn');
 const type = document.querySelector('#switch-checkbox');
 const totalSum = document.querySelector(".total-sum");
@@ -14,10 +15,17 @@ const cancel = document.querySelector(".cancel");
 addRowBtn.addEventListener('click', addBudgetRow);
 showBtn.addEventListener('click', toggleDialog);
 cancel.addEventListener('click', toggleDialog);
+type.addEventListener('change', toggleRowButtonState);
+
+function toggleRowButtonState() {
+    console.log("checkbox value is " + type.value);
+    console.log("but it is always ON");
+}
 
 function toggleDialog() {
     wrapper.classList.toggle('open');
     showData.classList.toggle('open');
+    showBtn.classList.toggle('close');
 }
 
 function addBudgetRow() {
@@ -58,7 +66,7 @@ function save(objects, object, key) {
 
 function show(object, key) {
     let item = `
-        <div class="flex py ${key === 'income' ? 'order-1' : ''} items-center">
+        <div class="flex data-item-content ${key === 'income' ? 'order-1' : ''} items-center">
             <div class="amount">${object.sum.toFixed(2)}</div>
             <div class="desc">${object.description}</div>
         </div>
