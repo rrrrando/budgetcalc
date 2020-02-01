@@ -2,11 +2,13 @@
 
 .total {
     display: flex;
-    background-color: var(--blue);
+    background-color: var(--blue-900);
     align-items: center;
     justify-content: space-between;
     height: 90px;
     padding: 0 2rem;
+    z-index:10;
+    box-shadow: var(--shadow);
 }
 
 .total-lable {
@@ -18,12 +20,14 @@
 
 .total-sum {
     flex: auto;
-    font-size: 48px;
+    font-size: 3rem;
     font-family: var(--font-mono);
+    font-weight: 400;
     color: var(--white);
-    text-align: center;    
+    text-align: right;
+    letter-spacing: -5%;
 }
 
-.total-spacer {
+/* .total-spacer {
     flex: 1 1 0;
-}
+} */
